@@ -7,10 +7,20 @@ add_executable(test src/main.cpp
         src/configuration.hpp
         src/NEAT/NEAT.cpp
         src/NEAT/NEAT.hpp
+        src/NEAT/Simulation/Simulation.cpp
+        src/NEAT/Simulation/Simulation.hpp
+        src/NEAT/Simulation/SimConfiguration.h
+        src/NEAT/Population/Population.cpp
+        src/NEAT/Population/Population.hpp
 )
 
 target_compile_features(test PRIVATE cxx_std_17)
 
 file(GLOB SRC_FILES src/NEAT/*.cpp)
-add_library(NEAT STATIC ${SRC_FILES})
+add_library(NEAT STATIC ${SRC_FILES}
+        src/NEAT/Simulation/Simulation.cpp
+        src/NEAT/Simulation/Simulation.hpp
+        src/NEAT/Population/Population.cpp
+        src/NEAT/Population/Population.hpp
+        src/NEAT/Simulation/SimConfiguration.h)
 target_include_directories(NEAT PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
