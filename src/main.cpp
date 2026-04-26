@@ -1,9 +1,9 @@
 // Files
 #include "NEAT/NEAT.hpp"
+#include "Configuration.hpp"
 
 // Libraries
 #include <iostream>
-#include <ostream>
 
 int main() {
     // Potential testing
@@ -12,11 +12,16 @@ int main() {
 
     Simulation& sim = NEAT::getSimulationAt(0);
 
-    // sim.start();
+    short frameCount = 0;
+
+    // while (true) {
+    //     sim.adjustFitnesses();
     //
-    // sim.pause();
-    //
-    // sim.stop();
+    //     if ( ++frameCount == Conf::generationLifespan ) {
+    //         frameCount = 0;
+    //         sim.nextGeneration();
+    //     }
+    // }
 
     return 0;
 }

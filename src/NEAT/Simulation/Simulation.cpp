@@ -7,14 +7,12 @@
 
 using namespace std;
 
-Simulation::Simulation() : running(false), population(simConf::defaultPopulationSize) {}
+Simulation::Simulation() : population(simConf::defaultPopulationSize), generation(0) {}
 
 size_t Simulation::getPopulationSize() {
-    return population.size();
+    return population.getSize();
 }
 
 void Simulation::setPopulationSize(size_t size) {
-    if (running)
-        throw runtime_error("Cannot resize population: Simulation is running.");
-    population = vector<Population>(size);
+    population.setSize(size);
 }

@@ -9,13 +9,12 @@
 using namespace std;
 
 class Simulation {
-    vector<Population> population;
-    bool running;
+    Population population;
+    unsigned int generation;
 
 public:
     Simulation();
 
-    void setPopulationSize(size_t size);
-
     size_t getPopulationSize();
+    void setPopulationSize(size_t size);
 };
