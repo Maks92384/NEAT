@@ -10,6 +10,7 @@ using namespace std;
 
 class Simulation {
     Population population;
+
     unsigned int generation;
 
 public:
