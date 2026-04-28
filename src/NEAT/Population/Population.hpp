@@ -1,22 +1,30 @@
 #pragma once
 
 //Files
-#include "../Genome/Genome.hpp"
+#include "Species.hpp"
 #include "../Network/NeuralNetwork.hpp"
 
-// Librarioes
+// Libraries
 #include <vector>
 
 using namespace std;
 
 class Population {
-    vector<Genome> genotypes;
+    vector<Species> species;
     vector<NeuralNetwork> phenotypes;
 
-public:
-    Population(size_t size);
-    Population();
+    size_t inputNodeCount;
+    size_t outputNodeCount;
 
-    void setSize(size_t size);
-    size_t getSize();
+public:
+    Population(size_t inputNodeCount, size_t outputNodeCount, size_t size);
+    Population(size_t inputNodeCount, size_t outputNodeCount);
+
+    void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t size);
+    void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount);
+    void generateNewPopulation();
+
+    void evolve();
+
+    size_t getSize() const;
 };

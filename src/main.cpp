@@ -5,10 +5,12 @@
 // Libraries
 #include <iostream>
 
+using namespace std;
+
 int main() {
     // Potential testing
 
-    NEAT::createSimulation();
+    NEAT::createSimulation(3, 1, 200);
 
     Simulation& sim = NEAT::getSimulationAt(0);
 

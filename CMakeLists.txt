@@ -16,6 +16,10 @@ add_executable(test src/main.cpp
         src/NEAT/Population/Species.hpp
         src/NEAT/Genome/Genome.cpp
         src/NEAT/Genome/Genome.hpp
+        src/NEAT/Genome/ConnectionGene.cpp
+        src/NEAT/Genome/ConnectionGene.hpp
+        src/NEAT/Genome/NodeGene.cpp
+        src/NEAT/Genome/NodeGene.hpp
         src/NEAT/Network/NeuralNetwork.cpp
         src/NEAT/Network/NeuralNetwork.hpp
 )
@@ -34,5 +38,9 @@ add_library(NEAT STATIC ${SRC_FILES}
         src/NEAT/Genome/Genome.cpp
         src/NEAT/Genome/Genome.hpp
         src/NEAT/Network/NeuralNetwork.cpp
-        src/NEAT/Network/NeuralNetwork.hpp)
+        src/NEAT/Network/NeuralNetwork.hpp
+        src/NEAT/Genome/NodeGene.cpp
+        src/NEAT/Genome/NodeGene.hpp
+        src/NEAT/Genome/ConnectionGene.cpp
+        src/NEAT/Genome/ConnectionGene.hpp)
 target_include_directories(NEAT PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)

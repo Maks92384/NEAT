@@ -8,14 +8,32 @@
 
 using namespace std;
 
+class NEAT;
+
 class Simulation {
+    friend class NEAT;
+
     Population population;
+
+    size_t inputNodeCount;
+    size_t outputNodeCount;
 
     unsigned int generation;
 
-public:
-    Simulation();
+    Simulation(size_t inputNodeCount, size_t outputNodeCount);
+    Simulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize);
 
-    size_t getPopulationSize();
-    void setPopulationSize(size_t size);
+public:
+
+    void nextGeneration();
+
+    void resetSimulation();
+    void resetSimulation(size_t populationSize);
+    void resetSimulation(size_t inputNodeCount, size_t outputNodeCount);
+    void resetSimulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize);
+
+    size_t getPopulationSize() const;
+    unsigned int getGeneration() const;
+    size_t getInputCount() const;
+    size_t getOutputCount() const;
 };
