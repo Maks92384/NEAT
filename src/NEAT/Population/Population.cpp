@@ -5,8 +5,6 @@
 #include <stdexcept>
 
 Population::Population(size_t inputNodeCount, size_t outputNodeCount, size_t size) :
-    species(1),
-    phenotypes(size),
     inputNodeCount(inputNodeCount),
     outputNodeCount(outputNodeCount) {
 
@@ -18,8 +16,12 @@ Population::Population(size_t inputNodeCount, size_t outputNodeCount) :
 
 void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t size) {
     species = vector<Species>(1);
-    phenotypes = vector<NeuralNetwork>(size);
+    phenotypes = vector<NeuralNetwork>();
 
+    for (size_t i = 0; i < size; i++)
+        species.at(0).add(Genome());
+
+    generatePhenotypes();
 }
 
 void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount) {
@@ -30,13 +32,17 @@ void Population::generateNewPopulation() {
     generateNewPopulation(inputNodeCount, outputNodeCount);
 }
 
+void Population::generatePhenotypes() {
+    for (Species& singleSpecies : species)
+        for (size_t i = 0; i < singleSpecies.getSize(); i++)
+            phenotypes.emplace_back(singleSpecies.getGenotypeAt(i));
+}
+
 void Population::evolve() {
 
 }
 
 size_t Population::getSize() const {
-    return phenotypes.size();
-
     size_t size = 0;
 
     for (Species singleSpecies : species)

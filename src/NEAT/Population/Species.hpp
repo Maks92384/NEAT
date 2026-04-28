@@ -11,9 +11,14 @@ using namespace std;
 class Species {
     vector<Genome> genotypes;
 
+
 public:
     Species(size_t size);
     Species();
 
+    void add(Genome genotype);
+    void clear();
+
     size_t getSize() const;
+    Genome getGenotypeAt(size_t index) const;
 };

@@ -24,6 +24,8 @@ public:
     void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount);
     void generateNewPopulation();
 
+    void generatePhenotypes();
+
     void evolve();
 
     size_t getSize() const;

@@ -4,11 +4,34 @@
 
 // Libraries
 #include <iostream>
+#include <random>
 
 using namespace std;
 
+mt19937 silnik;
+
 int main() {
     // Potential testing
+
+    random_device rd;
+    silnik.seed(rd());
+
+    uniform_int_distribution<int> distrib(0, 100);
+
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
+    cout<<distrib(silnik)<<endl;
 
     NEAT::createSimulation(3, 1, 200);
 
