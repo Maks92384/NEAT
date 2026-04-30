@@ -13,6 +13,8 @@ class NEAT;
 class Simulation {
     friend class NEAT;
 
+    static const size_t SIZE_ONE;
+
     Population population;
 
     size_t inputNodeCount;

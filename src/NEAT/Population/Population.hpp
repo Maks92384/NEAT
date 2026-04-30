@@ -22,6 +22,7 @@ public:
 
     void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t size);
     void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount);
+    void generateNewPopulation(size_t size);
     void generateNewPopulation();
 
     void generatePhenotypes();

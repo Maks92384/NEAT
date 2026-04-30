@@ -7,10 +7,16 @@
 
 using namespace std;
 
+const size_t Simulation::SIZE_ONE = 1;
+
 Simulation::Simulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize) :
-    population(inputNodeCount, outputNodeCount, populationSize),
-    inputNodeCount(inputNodeCount),
-    outputNodeCount(outputNodeCount),
+    population(
+        max(SIZE_ONE, inputNodeCount),
+        max(SIZE_ONE, outputNodeCount),
+        populationSize
+    ),
+    inputNodeCount(max(SIZE_ONE, inputNodeCount)),
+    outputNodeCount(max(SIZE_ONE, outputNodeCount)),
     generation(0) {
 
     population.generateNewPopulation();
@@ -42,7 +48,14 @@ size_t Simulation::getOutputCount() const {
 
 void Simulation::resetSimulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize) {
     generation = 0;
-    population.generateNewPopulation(inputNodeCount, outputNodeCount, populationSize);
+    population.generateNewPopulation(
+        max(SIZE_ONE, inputNodeCount),
+        max(SIZE_ONE, outputNodeCount),
+        populationSize
+    );
+
+    this->inputNodeCount = max(SIZE_ONE, inputNodeCount);
+    this->outputNodeCount = max(SIZE_ONE, outputNodeCount);
 }
 
 void Simulation::resetSimulation(size_t inputNodeCount, size_t outputNodeCount) {

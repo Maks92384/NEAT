@@ -8,7 +8,7 @@ Population::Population(size_t inputNodeCount, size_t outputNodeCount, size_t siz
     inputNodeCount(inputNodeCount),
     outputNodeCount(outputNodeCount) {
 
-    generateNewPopulation();
+    generateNewPopulation(size);
 }
 
 Population::Population(size_t inputNodeCount, size_t outputNodeCount) :
@@ -19,13 +19,17 @@ void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeC
     phenotypes = vector<NeuralNetwork>();
 
     for (size_t i = 0; i < size; i++)
-        species.at(0).add(Genome());
+        species.at(0).add(Genome(inputNodeCount, outputNodeCount));
 
     generatePhenotypes();
 }
 
 void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount) {
     generateNewPopulation(inputNodeCount, outputNodeCount, getSize());
+}
+
+void Population::generateNewPopulation(size_t size) {
+    generateNewPopulation(inputNodeCount, outputNodeCount, size);
 }
 
 void Population::generateNewPopulation() {

@@ -14,5 +14,5 @@ class Genome {
     vector<ConnectionGene> connections;
 
 public:
-    Genome();
+    Genome(size_t inputNodeCount, size_t outputNodeCount);
 };

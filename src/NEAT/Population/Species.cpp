@@ -1,6 +1,6 @@
 #include "Species.hpp"
 
-Species::Species(size_t size) : genotypes(size) {}
+Species::Species(size_t size) {}
 
 Species::Species() : Species(0) {}
 
