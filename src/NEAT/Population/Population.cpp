@@ -2,19 +2,21 @@
 #include "Population.hpp"
 
 // Libraries
+#include <iostream>
 #include <stdexcept>
 
-Population::Population(size_t inputNodeCount, size_t outputNodeCount, size_t size) :
+Population::Population(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t size) :
     inputNodeCount(inputNodeCount),
-    outputNodeCount(outputNodeCount) {
+    outputNodeCount(outputNodeCount),
+    globalInnovationNumber(inputNodeCount * outputNodeCount) {
 
     generateNewPopulation(size);
 }
 
-Population::Population(size_t inputNodeCount, size_t outputNodeCount) :
+Population::Population(uint16_t inputNodeCount, uint16_t outputNodeCount) :
     Population(inputNodeCount, outputNodeCount, 1) {}
 
-void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t size) {
+void Population::generateNewPopulation(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t size) {
     species = vector<Species>(1);
     phenotypes = vector<NeuralNetwork>();
 
@@ -24,7 +26,7 @@ void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeC
     generatePhenotypes();
 }
 
-void Population::generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount) {
+void Population::generateNewPopulation(uint16_t inputNodeCount, uint16_t outputNodeCount) {
     generateNewPopulation(inputNodeCount, outputNodeCount, getSize());
 }
 

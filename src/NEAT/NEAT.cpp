@@ -1,10 +1,12 @@
 // Files
 #include "NEAT.hpp"
+#include "Genome/Genome.hpp"
 
 // Libraries
 #include <stdexcept>
 
 using namespace std;
+
 
 vector<unique_ptr<Simulation>> NEAT::simulations;
 

@@ -1,10 +1,11 @@
+// Files
 #include "Species.hpp"
 
 Species::Species(size_t size) {}
 
 Species::Species() : Species(0) {}
 
-void Species::add(Genome genotype) {
+void Species::add(const Genome& genotype) {
     genotypes.push_back(genotype);
 }
 

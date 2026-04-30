@@ -8,7 +8,7 @@ class NodeGene {
         OUTPUT
     };
 
-    NodeType nodeType;
+    const NodeType nodeType;
 
     NodeGene(NodeType nodeType);
 

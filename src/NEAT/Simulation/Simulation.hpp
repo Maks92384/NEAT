@@ -3,9 +3,6 @@
 //Files
 #include "../Population/Population.hpp"
 
-// Libraries
-#include <vector>
-
 using namespace std;
 
 class NEAT;
@@ -13,17 +10,18 @@ class NEAT;
 class Simulation {
     friend class NEAT;
 
-    static const size_t SIZE_ONE;
+    static const uint16_t UINT16_ONE;
 
     Population population;
 
-    size_t inputNodeCount;
-    size_t outputNodeCount;
+    uint32_t generation;
 
-    unsigned int generation;
+    uint16_t inputNodeCount;
+    uint16_t outputNodeCount;
 
-    Simulation(size_t inputNodeCount, size_t outputNodeCount);
-    Simulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize);
+
+    Simulation(uint16_t inputNodeCount, uint16_t outputNodeCount);
+    Simulation(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t populationSize);
 
 public:
 
@@ -31,11 +29,11 @@ public:
 
     void resetSimulation();
     void resetSimulation(size_t populationSize);
-    void resetSimulation(size_t inputNodeCount, size_t outputNodeCount);
-    void resetSimulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize);
+    void resetSimulation(uint16_t inputNodeCount, uint16_t outputNodeCount);
+    void resetSimulation(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t populationSize);
 
     size_t getPopulationSize() const;
-    unsigned int getGeneration() const;
-    size_t getInputCount() const;
-    size_t getOutputCount() const;
+    uint32_t getGeneration() const;
+    uint16_t getInputCount() const;
+    uint16_t getOutputCount() const;
 };

@@ -10,18 +10,20 @@
 using namespace std;
 
 class Population {
+    uint32_t globalInnovationNumber;
+
+    uint16_t inputNodeCount;
+    uint16_t outputNodeCount;
+
     vector<Species> species;
     vector<NeuralNetwork> phenotypes;
 
-    size_t inputNodeCount;
-    size_t outputNodeCount;
-
 public:
-    Population(size_t inputNodeCount, size_t outputNodeCount, size_t size);
-    Population(size_t inputNodeCount, size_t outputNodeCount);
+    Population(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t size);
+    Population(uint16_t inputNodeCount, uint16_t outputNodeCount);
 
-    void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t size);
-    void generateNewPopulation(size_t inputNodeCount, size_t outputNodeCount);
+    void generateNewPopulation(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t size);
+    void generateNewPopulation(uint16_t inputNodeCount, uint16_t outputNodeCount);
     void generateNewPopulation(size_t size);
     void generateNewPopulation();
 
