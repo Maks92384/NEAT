@@ -1,22 +1,26 @@
 // Files
 #include "Species.hpp"
 
-Species::Species(size_t size) {}
+Species::Species() {}
 
-Species::Species() : Species(0) {}
+void Species::add(Organism* organism) {
+    organisms.push_back(organism);
+}
 
-void Species::add(const Genome& genotype) {
-    genotypes.push_back(genotype);
+Organism* Species::getRepresentative() {
+    uniform_int_distribution<size_t> organismDistribution(0, organisms.size() - 1);
+
+    return organisms.at(organismDistribution(random));
 }
 
 void Species::clear() {
-    genotypes.clear();
+    organisms.clear();
 }
 
 size_t Species::getSize() const {
-    return genotypes.size();
+    return organisms.size();
 }
 
-Genome Species::getGenotypeAt(size_t index) const {
-    return genotypes.at(index);
+Organism* Species::getOrganismAt(size_t index) {
+    return organisms.at(index);
 }

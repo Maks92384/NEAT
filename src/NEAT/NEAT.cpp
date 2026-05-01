@@ -2,31 +2,24 @@
 #include "NEAT.hpp"
 #include "Genome/Genome.hpp"
 
-// Libraries
-#include <stdexcept>
-
 using namespace std;
 
+vector<unique_ptr<Population>> NEAT::populations;
 
-vector<unique_ptr<Simulation>> NEAT::simulations;
-
-Simulation& NEAT::createSimulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize) {
-    simulations.emplace_back(new Simulation(inputNodeCount, outputNodeCount, populationSize));
-    return *simulations.back();
+Population& NEAT::createPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize) {
+    populations.emplace_back(new Population(inputNodeCount, outputNodeCount, populationSize));
+    return *populations.back();
 }
 
-Simulation& NEAT::createSimulation(size_t inputNodeCount, size_t outputNodeCount) {
-    simulations.emplace_back(new Simulation(inputNodeCount, outputNodeCount));
-    return *simulations.back();
+Population& NEAT::createPopulation(size_t inputNodeCount, size_t outputNodeCount) {
+    populations.emplace_back(new Population(inputNodeCount, outputNodeCount));
+    return *populations.back();
 }
 
-Simulation& NEAT::getSimulationAt(size_t index) {
-    if (index >= simulations.size())
-        throw out_of_range("simulation index out of range");
-
-    return *simulations[index];
+Population& NEAT::getPopulationAt(size_t index) {
+    return *populations.at(index);
 }
 
-size_t NEAT::getSimulationCount() {
-    return simulations.size();
+size_t NEAT::getPopulationCount() {
+    return populations.size();
 }

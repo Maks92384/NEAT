@@ -18,4 +18,5 @@ class ConnectionGene {
 public:
     ConnectionGene(uint16_t inNode, uint16_t outNode, float weight, uint32_t innovation);
     ConnectionGene(uint16_t inNode, uint16_t outNode, float weight, uint32_t innovation, bool enabled);
+    void display() const;
 };

@@ -2,22 +2,29 @@
 
 // Files
 #include "../Genome/Genome.hpp"
+#include "Organism.hpp"
 
 // Libraries
+#include <memory>
 #include <vector>
 
 using namespace std;
 
 class Species {
-    vector<Genome> genotypes;
+    inline static mt19937 random {
+        random_device{}()
+    };
+
+    vector<Organism*> organisms;
 
 public:
-    Species(size_t size);
     Species();
 
-    void add(const Genome& genotype);
+    void add(Organism* organism);
     void clear();
 
+    Organism* getRepresentative();
+
     size_t getSize() const;
-    Genome getGenotypeAt(size_t index) const;
+    Organism* getOrganismAt(size_t index);
 };

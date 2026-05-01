@@ -4,15 +4,31 @@
 
 // Libraries
 #include <iostream>
+#include <random>
+
+mt19937 silnik;
 
 using namespace std;
 
 int main() {
     // Potential testing
 
-    NEAT::createSimulation(3, 2, 2);
+    random_device random_device{};
+    silnik.seed(random_device());
 
-    Simulation& sim = NEAT::getSimulationAt(0);
+
+    NEAT::createPopulation(3, 2, 2);
+
+    Population& pop = NEAT::getPopulationAt(0);
+
+    //pop.nextGeneration();
+
+    cout<<"==================================================="<<endl<<endl;
+
+    const vector<unique_ptr<Organism>>& organisms = pop.getOrganisms();
+
+    for (int i = 0; i < organisms.size(); i++)
+        organisms.at(i)->display(i);
 
 
     short frameCount = 0;

@@ -1,7 +1,7 @@
 #pragma once
 
 // Files
-#include "Simulation/Simulation.hpp"
+#include "Population/Population.hpp"
 
 // Libraries
 #include <memory>
@@ -10,13 +10,13 @@
 using namespace std;
 
 class NEAT {
-    static vector<unique_ptr<Simulation>> simulations;
+    static vector<unique_ptr<Population>> populations;
 
 public:
     NEAT() = delete;
 
-    static Simulation& createSimulation(size_t inputNodeCount, size_t outputNodeCount);
-    static Simulation& createSimulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize);
-    static Simulation& getSimulationAt(size_t index);
-    static size_t getSimulationCount();
+    static Population& createPopulation(size_t inputNodeCount, size_t outputNodeCount);
+    static Population& createPopulation(size_t inputNodeCount, size_t outputNodeCount, size_t populationSize);
+    static Population& getPopulationAt(size_t index);
+    static size_t getPopulationCount();
 };
