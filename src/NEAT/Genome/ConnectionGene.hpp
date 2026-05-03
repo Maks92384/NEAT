@@ -3,7 +3,6 @@
 // Libraries
 #include <cstdint>
 
-using namespace std;
 
 class ConnectionGene {
     const float weight;

@@ -1,12 +1,16 @@
 // Files
 #include "Genome.hpp"
+#include "../RandomGenerator.hpp"
 
+// Libraries
 #include <iostream>
 
+using std::cout;
+using std::endl;
+using std::uniform_real_distribution;
 
 Genome::Genome(uint16_t inputNodeCount, uint16_t outputNodeCount, const uint32_t& globalInnovationNumber) :
-    globalInnovationNumber(globalInnovationNumber),
-    fitness(0) {
+    globalInnovationNumber(globalInnovationNumber) {
 
     uniform_real_distribution<float> initialWeightDistribution(-1, 1);
 
@@ -35,16 +39,11 @@ Genome::Genome(uint16_t inputNodeCount, uint16_t outputNodeCount, const uint32_t
             );
 }
 
-float Genome::getFitness() const {
-    return fitness;
-}
-
-void Genome::setFitness(float fitness) {
-    this->fitness = fitness;
+void Genome::mutate() {
 }
 
 void Genome::display(size_t index) const {
     cout<<"Genome("<<index<<"):"<<endl;
-    for (uint32_t i = 0; i < connections.size(); i++)
-        connections[i].display();
+    for (const auto& connection : connections)
+        connection.display();
 }

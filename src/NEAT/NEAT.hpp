@@ -7,10 +7,8 @@
 #include <memory>
 #include <vector>
 
-using namespace std;
-
 class NEAT {
-    static vector<unique_ptr<Population>> populations;
+    static std::vector<std::unique_ptr<Population>> populations;
 
 public:
     NEAT() = delete;

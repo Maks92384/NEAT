@@ -1,8 +1,8 @@
 // Files
 #include "NEAT.hpp"
-#include "Genome/Genome.hpp"
 
-using namespace std;
+using std::vector;
+using std::unique_ptr;
 
 vector<unique_ptr<Population>> NEAT::populations;
 

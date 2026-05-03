@@ -4,9 +4,8 @@
 #include "Species.hpp"
 
 // Libraries
+#include <memory>
 #include <vector>
-
-using namespace std;
 
 
 class NEAT;
@@ -24,8 +23,8 @@ class Population {
     uint16_t inputNodeCount;
     uint16_t outputNodeCount;
 
-    vector<unique_ptr<Organism>> organisms;
-    vector<Species> species;
+    std::vector<std::unique_ptr<Organism>> organisms;
+    std::vector<Species> species;
 
     // Configuration parameters
 
@@ -47,6 +46,8 @@ class Population {
 
     float remainDisabledRate;
 
+    float cullingThreshold;
+
 
     Population(uint16_t inputNodeCount, uint16_t outputNodeCount);
     Population(uint16_t inputNodeCount, uint16_t outputNodeCount, size_t populationSize);
@@ -65,7 +66,7 @@ public:
     uint16_t getInputCount() const;
     uint16_t getOutputCount() const;
 
-    const vector<unique_ptr<Organism>>& getOrganisms() const;
+    const std::vector<std::unique_ptr<Organism>>& getOrganisms() const;
 
 
     // Parameters getters and setters
@@ -81,16 +82,18 @@ public:
     float getNewConnectionRate() const;
     float getInterspeciesMatingRate() const;
     float getRemainDisabledRate() const;
+    float getCullingThreshold() const;
 
-    void setExcessCoefficient(float newExcessCoefficient);
-    void setDisjointCoefficient(float newDisjointCoefficient);
-    void setWeightsCoefficient(float newWeightsCoefficient);
-    void setCompatibilityThreshold(float newCompatibilityThreshold);
-    void setCrossoverRate(float newCrossoverRate);
-    void setWeightMutationRate(float newWeightMutationRate);
-    void setNewWeightRate(float newNewWeightRate);
-    void setNewNodeRate(float newNewNodeRate);
-    void setNewConnectionRate(float newNewConnectionRate);
-    void setInterspeciesMatingRate(float newInterspeciesMatingRate);
-    void setRemainDisabledRate(float newRemainDisabledRate);
+    void setExcessCoefficient(float excessCoefficient);
+    void setDisjointCoefficient(float disjointCoefficient);
+    void setWeightsCoefficient(float weightsCoefficient);
+    void setCompatibilityThreshold(float compatibilityThreshold);
+    void setCrossoverRate(float crossoverRate);
+    void setWeightMutationRate(float weightMutationRate);
+    void setNewWeightRate(float newWeightRate);
+    void setNewNodeRate(float newNodeRate);
+    void setNewConnectionRate(float newConnectionRate);
+    void setInterspeciesMatingRate(float interspeciesMatingRate);
+    void setRemainDisabledRate(float remainDisabledRate);
+    void setCullingThreshold(float cullingThreshold);
 };

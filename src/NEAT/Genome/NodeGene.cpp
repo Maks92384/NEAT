@@ -1,9 +1,11 @@
 // Files
 #include "NodeGene.hpp"
 
+// Libraries
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 NodeGene::NodeGene(NodeType nodeType) : nodeType(nodeType) {
     if (nodeType == NodeType::INPUT)

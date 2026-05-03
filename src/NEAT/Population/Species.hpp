@@ -1,30 +1,27 @@
 #pragma once
 
 // Files
-#include "../Genome/Genome.hpp"
 #include "Organism.hpp"
 
 // Libraries
 #include <memory>
 #include <vector>
 
-using namespace std;
-
 class Species {
-    inline static mt19937 random {
-        random_device{}()
-    };
-
-    vector<Organism*> organisms;
+    std::vector<Organism*> organisms;
 
 public:
     Species();
 
     void add(Organism* organism);
     void clear();
+    void cull(float cullingThreshold);
 
-    Organism* getRepresentative();
+    std::vector<std::unique_ptr<Organism>> crossover(size_t offspringCount, float crossoverRate) const;
 
+    Organism getRepresentative() const;
+    double getAverageFitness() const;
     size_t getSize() const;
     Organism* getOrganismAt(size_t index);
+
 };

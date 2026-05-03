@@ -8,6 +8,7 @@ add_executable(test src/main.cpp
         src/NEAT/NEAT.cpp
         src/NEAT/NEAT.hpp
         src/NEAT/NeatConfiguration.h
+        src/NEAT/RandomGenerator.hpp
         src/NEAT/Population/Population.cpp
         src/NEAT/Population/Population.hpp
         src/NEAT/Population/Species.cpp
@@ -24,8 +25,9 @@ add_executable(test src/main.cpp
         src/NEAT/Network/NeuralNetwork.hpp
 )
 
-target_compile_features(test PRIVATE cxx_std_17)
+target_compile_features(test PRIVATE cxx_std_20)
 
 file(GLOB SRC_FILES src/NEAT/*.cpp)
-add_library(NEAT STATIC ${SRC_FILES})
+add_library(NEAT STATIC ${SRC_FILES}
+        src/NEAT/RandomGenerator.hpp)
 target_include_directories(NEAT PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
